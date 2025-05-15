@@ -1,0 +1,28 @@
+<!-- <div>
+  <label>Country:</label>
+  <select (change)="changeTime($event)">
+    <option selected>Select...</option>
+    <option value="EST">America</option>
+    <option value="IST">India</option>
+    <option value="CST">China</option>
+    <option value="JST">Japan</option>
+    <option value="GMT">UK</option>
+  </select>
+</div>
+
+<p>Time:{{time}}</p>
+<p>Standard: {{date}}</p> -->
+
+<h1>World Time Zones</h1>
+<div>
+<label for="timezone">Select a Timezone:</label>
+<select id="timezone" (change)="onTimezoneChange($event)">
+  <option value="">-- Choose a timezone --</option>
+  <option *ngFor="let tz of timezones" [value]="tz">{{ tz }}</option>
+</select> 
+
+<div *ngIf="selectedTime">
+  <h3>{{ selectedTime.timeZone }}</h3>
+  <p>{{ selectedTime.dateTime }}</p>
+</div>
+</div>
