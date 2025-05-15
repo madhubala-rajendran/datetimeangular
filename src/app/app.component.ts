@@ -48,7 +48,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     // Fetch the list of timezones from the backend
-    this.http.get<string[]>('http://datetimebackend.runasp.net/Time/GetTimeZones').subscribe({
+    this.http.get<string[]>('https://datetimebackend.runasp.net/Time/GetTimeZones').subscribe({
       next: (data) => {
         this.timezones = data;
       },
@@ -66,7 +66,7 @@ export class AppComponent implements OnInit {
       return;
     }
 
-    const apiUrl = `http://datetimebackend.runasp.net/Time/GetDateTime?timeZoneId=${encodeURIComponent(selectedZone)}`;
+    const apiUrl = `https://datetimebackend.runasp.net/Time/GetDateTime?timeZoneId=${encodeURIComponent(selectedZone)}`;
 
     this.http.get<{ timeZone: string; dateTime: string }>(apiUrl).subscribe({
       next: (data) => {
